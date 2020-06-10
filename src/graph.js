@@ -1,11 +1,14 @@
-//Example 
-// Pairs => [[from,to],[to,from]]
-// Source => from
-// To => to 
-// Should return true.
-
-const bfs = function(pairs,source,target){
-  
+const parsePairs = function(pairs) {
+  const graph = pairs.reduce((graph, element) => {
+    if (!graph[element[0]]) {
+      graph[element[0]] = [];
+    }
+    graph[element[0]].push(element[1]);
+    return graph;
+  }, {});
+  return graph;
 };
 
-module.exports = {bfs};
+const bfs = function(pairs, source, target) {};
+
+module.exports = { bfs, parsePairs };
