@@ -9,6 +9,23 @@ const parsePairs = function(pairs) {
   return graph;
 };
 
-const bfs = function(pairs, source, target) {};
+const bfs = function(pairs, source, target) {
+  const graph = parsePairs(pairs);
+  const queue = [source];
+  const visited = [];
+
+  while (queue.length > 0) {
+    const currentNode = queue.shift();
+    if (graph[currentNode] && graph[currentNode].includes(target)) {
+      return true;
+    }
+    graph[currentNode].forEach((element) => {
+      if (!queue.includes(element) && !visited.includes(element)) {
+        queue.push(element);
+      }
+    });
+  }
+  return false;
+};
 
 module.exports = { bfs, parsePairs };
