@@ -16,14 +16,16 @@ const bfs = function(pairs, source, target) {
 
   while (queue.length > 0) {
     const currentNode = queue.shift();
+    visited.push(currentNode);
     if (graph[currentNode] && graph[currentNode].includes(target)) {
       return true;
     }
-    graph[currentNode].forEach((element) => {
-      if (!queue.includes(element) && !visited.includes(element)) {
-        queue.push(element);
-      }
-    });
+    graph[currentNode] &&
+      graph[currentNode].forEach((element) => {
+        if (!queue.includes(element) && !visited.includes(element)) {
+          queue.push(element);
+        }
+      });
   }
   return false;
 };
