@@ -20,6 +20,7 @@ const bfs = function(pairs, source, target) {
     if (graph[currentNode] && graph[currentNode].includes(target)) {
       return true;
     }
+
     graph[currentNode] &&
       graph[currentNode].forEach((element) => {
         if (!queue.includes(element) && !visited.includes(element)) {

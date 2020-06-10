@@ -38,7 +38,7 @@ describe('bfs', () => {
     ['c', 'f'],
   ];
 
-  it('should invalidate node is not connected to itself', () => {
+  it('should invalidate if node is not connected to itself', () => {
     assert.isFalse(bfs(pairs, 'a', 'a'));
   });
 
@@ -50,7 +50,7 @@ describe('bfs', () => {
     assert.isTrue(bfs(pairs, 'a', 'd'), true);
   });
 
-  it('should validate if not connected to each other', () => {
+  it('should invalidate if not connected to each other', () => {
     assert.isFalse(bfs(pairs, 'a', 'f'));
   });
 });
